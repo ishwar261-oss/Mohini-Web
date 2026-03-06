@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOHINI AI – Your Personal AI Assistant</title>
+  <meta name="description" content="MOHINI AI is a powerful Java-based AI assistant with chat, smart commands, to-do, notes, reminders, and voice TTS. Discover how it works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">🤖</span>
+        <span>MOHINI<span class="accent">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#codeflow">Code Flow</a></li>
+        <li><a href="#demo">Demo</a></li>
+      </ul>
+      <a href="#download" class="nav-cta">Get Started</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Java Swing · OpenRouter API · GPT-4o-mini
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        Meet <span class="gradient-text">MOHINI</span><br/>
+        Your Personal<br/>AI Assistant
+      </h1>
+      <p class="hero-sub reveal-up delay-2">
+        A full-featured AI desktop app powered by GPT-4o-mini.<br/>
+        Smart commands, persistent notes, reminders, and voice TTS — all in one elegant interface.
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <a href="#codeflow" class="btn-primary">
+          <span>Explore Code Flow</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#features" class="btn-ghost">View Features</a>
+      </div>
+      <div class="hero-stats reveal-up delay-4">
+        <div class="stat"><span class="stat-n" data-count="9">0</span><span class="stat-l">Commands</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n" data-count="4">0</span><span class="stat-l">Modules</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n" data-count="100">0</span><span class="stat-l">% Local Data</span></div>
+      </div>
+    </div>
+    <!-- floating terminal window -->
+    <div class="hero-terminal reveal-right delay-2">
+      <div class="terminal-bar">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">MOHINI AI – Terminal</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="t-line"><span class="t-prefix">mohini&gt;</span> <span class="t-text typed" id="typedText"></span><span class="t-cursor">|</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="features-section section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">✨ Features</span>
+        <h2 class="section-title reveal-up delay-1">Everything You Need,<br/><span class="gradient-text">Nothing You Don't</span></h2>
+        <p class="section-sub reveal-up delay-2">Nine powerful modules packed into one sleek desktop application.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal-card" data-delay="0">
+          <div class="card-icon">💬</div>
+          <h3>AI Chat</h3>
+          <p>Natural conversation with GPT-4o-mini via OpenRouter. Context-aware responses with full chat history.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="100">
+          <div class="card-icon">⚡</div>
+          <h3>Smart Commands</h3>
+          <p>9 slash commands including <code>/code</code>, <code>/calc</code>, <code>/todo</code>, <code>/notes</code> — instant productivity.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="200">
+          <div class="card-icon">📋</div>
+          <h3>To-Do System</h3>
+          <p>Add, complete, delete tasks with persistent JSON storage. Full sub-command system with filtering.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="300">
+          <div class="card-icon">📝</div>
+          <h3>Smart Notes</h3>
+          <p>Create, edit, and export notes with a split-pane editor. Markdown-ready and full-text searchable.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="400">
+          <div class="card-icon">⏰</div>
+          <h3>Reminders</h3>
+          <p>Set timed pop-up reminders in minutes. Never miss a deadline again with native system notifications.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="500">
+          <div class="card-icon">🔊</div>
+          <h3>Voice TTS</h3>
+          <p>Text-to-speech via Windows Zira voice. Hear MOHINI respond in a natural, clear voice.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="600">
+          <div class="card-icon">🎨</div>
+          <h3>Modern Dark UI</h3>
+          <p>FlatLaf dark theme with sidebar navigation. Pixel-perfect layout inspired by modern design systems.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="700">
+          <div class="card-icon">💾</div>
+          <h3>Persistent Data</h3>
+          <p>All data saved as JSON in the <code>data/</code> folder. Works fully offline, no cloud required.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="800">
+          <div class="card-icon">🔒</div>
+          <h3>Secure by Design</h3>
+          <p>API key via environment variable, full input sanitization, and validation on every command.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARCHITECTURE ── -->
+  <section class="arch-section section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🏗 Architecture</span>
+        <h2 class="section-title reveal-up delay-1">Modular Package<br/><span class="gradient-text">Structure</span></h2>
+        <p class="section-sub reveal-up delay-2">Five clearly separated packages — each with a single responsibility.</p>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-pkg reveal-card" data-delay="0">
+          <div class="pkg-header">
+            <span class="pkg-icon">🤖</span>
+            <div>
+              <div class="pkg-name">ai/</div>
+              <div class="pkg-desc">AI Service Layer</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Message.java</li>
+            <li><span class="file-icon">📄</span> OpenAIService.java</li>
+          </ul>
+          <div class="pkg-badge">Core</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="100">
+          <div class="pkg-header">
+            <span class="pkg-icon">⚡</span>
+            <div>
+              <div class="pkg-name">commands/</div>
+              <div class="pkg-desc">Slash Command System</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Command.java (interface)</li>
+            <li><span class="file-icon">📄</span> CommandHandler.java</li>
+            <li><span class="file-icon">📄</span> CalcCommand.java</li>
+            <li><span class="file-icon">📄</span> CodeCommand.java</li>
+            <li><span class="file-icon">📄</span> + 5 more commands</li>
+          </ul>
+          <div class="pkg-badge">Commands</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="200">
+          <div class="pkg-header">
+            <span class="pkg-icon">💾</span>
+            <div>
+              <div class="pkg-name">storage/</div>
+              <div class="pkg-desc">Data Persistence</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> TodoManager.java</li>
+            <li><span class="file-icon">📄</span> NotesManager.java</li>
+            <li><span class="file-icon">📄</span> ReminderManager.java</li>
+            <li><span class="file-icon">📄</span> ChatHistoryManager.java</li>
+          </ul>
+          <div class="pkg-badge">Storage</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="300">
+          <div class="pkg-header">
+            <span class="pkg-icon">🎨</span>
+            <div>
+              <div class="pkg-name">ui/</div>
+              <div class="pkg-desc">GUI Components</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Main.java</li>
+            <li><span class="file-icon">📄</span> ChatUI.java</li>
+            <li><span class="file-icon">📄</span> SidebarPanel.java</li>
+            <li><span class="file-icon">📄</span> TodoPanel.java</li>
+            <li><span class="file-icon">📄</span> + 4 more panels</li>
+          </ul>
+          <div class="pkg-badge">UI</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="400">
+          <div class="pkg-header">
+            <span class="pkg-icon">🛠</span>
+            <div>
+              <div class="pkg-name">utils/ + tools/</div>
+              <div class="pkg-desc">Utilities & Config</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> ConfigManager.java</li>
+            <li><span class="file-icon">📄</span> InputValidator.java</li>
+            <li><span class="file-icon">📄</span> FileManager.java</li>
+            <li><span class="file-icon">📄</span> TTSEngine.java</li>
+          </ul>
+          <div class="pkg-badge">Utilities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CODE FLOW ── -->
+  <section class="codeflow-section section" id="codeflow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🔄 Code Flow</span>
+        <h2 class="section-title reveal-up delay-1">How MOHINI<br/><span class="gradient-text">Processes Your Input</span></h2>
+        <p class="section-sub reveal-up delay-2">From keystroke to AI response — watch the full data pipeline.</p>
+      </div>
+
+      <div class="flow-container">
+        <!-- Step 1 -->
+        <div class="flow-step reveal-flow" data-step="1">
+          <div class="flow-step-inner">
+            <div class="flow-num">01</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">⌨️</div>
+            </div>
+            <div class="flow-body">
+              <h3>User Input</h3>
+              <p>User types a message or slash command in the <strong>ChatPanel</strong>. Input is captured by the Swing text field's action listener.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>ChatPanel.java</span></div>
+                <pre><code><span class="kw">sendButton</span>.addActionListener(<span class="kw">e</span> -&gt; {
+  String input = <span class="str">inputField</span>.getText().trim();
+  <span class="kw">if</span> (!input.isEmpty()) processInput(input);
+});</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flow-step reveal-flow" data-step="2">
+          <div class="flow-step-inner">
+            <div class="flow-num">02</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">🔍</div>
+            </div>
+            <div class="flow-body">
+              <h3>Validation &amp; Routing</h3>
+              <p><strong>InputValidator</strong> sanitizes the input. <strong>CommandHandler</strong> checks if it starts with <code>/</code> and routes to the correct command class.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>CommandHandler.java</span></div>
+                <pre><code><span class="kw">if</span> (input.startsWith(<span class="str">"/"</span>)) {
+  Command cmd = <span class="fn">registry</span>.get(input.split(<span class="str">" "</span>)[0]);
+  <span class="kw">return</span> cmd != <span class="kw">null</span> ? cmd.execute(args) : <span class="str">"Unknown command"</span>;
+} <span class="kw">else</span> {
+  <span class="kw">return</span> aiService.chat(input); <span class="cm">// → AI path</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 3 – branching -->
+        <div class="flow-branch reveal-up delay-1">
+          <div class="branch-label">Branching Logic</div>
+          <div class="branch-box">
+            <div class="branch-path ai-path">
+              <div class="branch-icon">🤖</div>
+              <h4>AI Chat Path</h4>
+              <p><strong>OpenAIService.java</strong> builds the JSON payload with message history, calls OpenRouter REST API, and returns the streamed response.</p>
+              <div class="flow-code small">
+                <pre><code>POST api.openrouter.ai/api/v1/chat
+<span class="cm">// model: openai/gpt-4o-mini</span>
+<span class="cm">// Authorization: Bearer $API_KEY</span>
+<span class="cm">// messages: [{role, content}...]</span></code></pre>
+              </div>
+            </div>
+            <div class="branch-divider">
+              <div class="branch-or">OR</div>
+            </div>
+            <div class="branch-path cmd-path">
+              <div class="branch-icon">⚡</div>
+              <h4>Command Path</h4>
+              <p>Matched command (e.g. <strong>CalcCommand</strong>) runs locally: parses args, executes logic, and returns plain text — no API call needed.</p>
+              <div class="flow-code small">
+                <pre><code><span class="kw">class</span> CalcCommand <span class="kw">implements</span> Command {
+  <span class="kw">public</span> String execute(String args) {
+    <span class="kw">return</span> Evaluator.eval(args);
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flow-step reveal-flow" data-step="4">
+          <div class="flow-step-inner">
+            <div class="flow-num">04</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">💾</div>
+            </div>
+            <div class="flow-body">
+              <h3>Storage Layer</h3>
+              <p>Depending on the command, <strong>TodoManager</strong>, <strong>NotesManager</strong>, or <strong>ChatHistoryManager</strong> persist data as JSON files in the <code>data/</code> folder.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>TodoManager.java</span></div>
+                <pre><code><span class="kw">public void</span> saveTodos(List&lt;Todo&gt; todos) {
+  JSONArray arr = <span class="kw">new</span> JSONArray(todos);
+  Files.writeString(Path.of(<span class="str">"data/todos.json"</span>), arr.toString());
+}</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flow-step reveal-flow" data-step="5">
+          <div class="flow-step-inner">
+            <div class="flow-num">05</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">🎨</div>
+            </div>
+            <div class="flow-body">
+              <h3>UI Rendering</h3>
+              <p>The response is rendered in <strong>ChatUI</strong> as a styled message bubble. <strong>TTSEngine</strong> optionally reads it aloud using Windows PowerShell Speech.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>TTSEngine.java</span></div>
+                <pre><code>Runtime.getRuntime().exec(<span class="kw">new</span> String[]{
+  <span class="str">"powershell"</span>, <span class="str">"-Command"</span>,
+  <span class="str">"Add-Type -AssemblyName System.Speech; ..."</span>
+  + <span class="str">"$s.Speak('"</span> + text + <span class="str">"')"</span>
+});</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMMANDS ── -->
+  <section class="commands-section section" id="commands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">⚡ Commands</span>
+        <h2 class="section-title reveal-up delay-1">9 Powerful<br/><span class="gradient-text">Slash Commands</span></h2>
+        <p class="section-sub reveal-up delay-2">Type <code>/</code> to unlock a world of local and AI-powered capabilities.</p>
+      </div>
+      <div class="cmd-grid">
+        <div class="cmd-card reveal-card" data-delay="0">
+          <div class="cmd-top">
+            <code class="cmd-name">/help</code>
+            <span class="cmd-tag local">Local</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/help</code></p>
+          <p>List all available commands with usage hints.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="100">
+          <div class="cmd-top">
+            <code class="cmd-name">/calc</code>
+            <span class="cmd-tag local">Local</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/calc 2+2*3</code></p>
+          <p>Evaluate mathematical expressions instantly without AI.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="200">
+          <div class="cmd-top">
+            <code class="cmd-name">/code</code>
+            <span class="cmd-tag ai">AI</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/code Python sort a list</code></p>
+          <p>Generate clean, ready-to-use code in any language.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="300">
+          <div class="cmd-top">
+            <code class="cmd-name">/explain</code>
+            <span class="cmd-tag ai">AI</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/explain recursion</code></p>
+          <p>Get clear, concise explanations of any concept.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="400">
+          <div class="cmd-top">
+            <code class="cmd-name">/summarize</code>
+            <span class="cmd-tag ai">AI</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/summarize &lt;text&gt;</code></p>
+          <p>Condense long text into a crisp bullet-point summary.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="500">
+          <div class="cmd-top">
+            <code class="cmd-name">/todo</code>
+            <span class="cmd-tag local">Local</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/todo add Buy milk</code></p>
+          <p>Full to-do management: add, list, done, delete, clear.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="600">
+          <div class="cmd-top">
+            <code class="cmd-name">/notes</code>
+            <span class="cmd-tag local">Local</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/notes save My idea</code></p>
+          <p>Save and view quick notes with export capability.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="700">
+          <div class="cmd-top">
+            <code class="cmd-name">/reminder</code>
+            <span class="cmd-tag local">Local</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/reminder 10 Take a break</code></p>
+          <p>Set countdown reminders in minutes with pop-up alerts.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="800">
+          <div class="cmd-top">
+            <code class="cmd-name">/search</code>
+            <span class="cmd-tag ai">AI</span>
+          </div>
+          <p class="cmd-usage">Usage: <code>/search quantum computing</code></p>
+          <p>AI-powered search that synthesizes answers from knowledge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK DEMO ── -->
+  <section class="demo-section section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🛠 Tech Stack</span>
+        <h2 class="section-title reveal-up delay-1">Built with<br/><span class="gradient-text">Java &amp; OpenAI</span></h2>
+        <p class="section-sub reveal-up delay-2">A hand-crafted stack chosen for performance, reliability, and desktop integration.</p>
+      </div>
+      <div class="tech-stack-visual reveal-up delay-2">
+        <div class="tech-layer" data-delay="0">
+          <div class="tech-layer-label">UI Layer</div>
+          <div class="tech-pills">
+            <div class="tech-pill"><span>☕</span> Java 11 Swing</div>
+            <div class="tech-pill"><span>🎨</span> FlatLaf 3.4</div>
+          </div>
+        </div>
+        <div class="tech-connector">↓</div>
+        <div class="tech-layer" data-delay="200">
+          <div class="tech-layer-label">Logic Layer</div>
+          <div class="tech-pills">
+            <div class="tech-pill"><span>⚡</span> Command System</div>
+            <div class="tech-pill"><span>🔧</span> Input Validator</div>
+            <div class="tech-pill"><span>🔊</span> PowerShell TTS</div>
+          </div>
+        </div>
+        <div class="tech-connector">↓</div>
+        <div class="tech-layer" data-delay="400">
+          <div class="tech-layer-label">AI Layer</div>
+          <div class="tech-pills">
+            <div class="tech-pill"><span>🤖</span> OpenRouter API</div>
+            <div class="tech-pill"><span>🧠</span> GPT-4o-mini</div>
+          </div>
+        </div>
+        <div class="tech-connector">↓</div>
+        <div class="tech-layer" data-delay="600">
+          <div class="tech-layer-label">Storage Layer</div>
+          <div class="tech-pills">
+            <div class="tech-pill"><span>📦</span> org.json</div>
+            <div class="tech-pill"><span>📁</span> Local JSON Files</div>
+            <div class="tech-pill"><span>📦</span> Maven Build</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOWNLOAD / GET STARTED ── -->
+  <section class="download-section section" id="download">
+    <div class="container">
+      <div class="download-card reveal-up">
+        <div class="download-orbs">
+          <div class="d-orb d-orb-1"></div>
+          <div class="d-orb d-orb-2"></div>
+        </div>
+        <div class="download-content">
+          <h2>Ready to meet <span class="gradient-text">MOHINI</span>?</h2>
+          <p>Set up your OpenRouter API key and run in under 2 minutes.</p>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div>
+                <strong>Set API Key</strong>
+                <code class="setup-code">set OPENROUTER_API_KEY=sk-or-...</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div>
+                <strong>Build with Maven</strong>
+                <code class="setup-code">mvn clean package -q</code>
+              </div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div>
+                <strong>Run the JAR</strong>
+                <code class="setup-code">java -jar target/MohiniAI-1.0.jar</code>
+              </div>
+            </div>
+          </div>
+          <div class="download-actions">
+            <a href="../run_mohini.bat" class="btn-primary large">
+              <span>🚀 Launch MOHINI</span>
+            </a>
+            <a href="https://openrouter.ai" target="_blank" class="btn-ghost large">Get API Key →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">🤖</span>
+          <span>MOHINI<span class="accent">AI</span></span>
+        </div>
+        <p class="footer-copy">Made with ❤ by <strong>@IDZz</strong> · Powered by OpenRouter & Java Swing</p>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#codeflow">Code Flow</a>
+          <a href="#commands">Commands</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
