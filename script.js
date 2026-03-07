@@ -838,3 +838,70 @@ console.log(
     "color:#6366f1;font-size:22px;font-weight:900;",
     "color:#64748b;font-size:12px;"
 );
+
+
+/* ══════════════════════════════════════════
+   17. CONCEPT MAP SCROLL ANIMATION
+   ══════════════════════════════════════════ */
+(function initConceptMap() {
+    const wrapper = document.getElementById("conceptMapWrapper");
+    if (!wrapper) return;
+
+    const nodes = wrapper.querySelectorAll(".cm-hidden");
+    const lines = wrapper.querySelectorAll(".cm-line");
+    const pulses = wrapper.querySelectorAll(".cm-pulse");
+
+    const cmObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate lines first
+                lines.forEach((line, i) => {
+                    setTimeout(() => line.classList.add("visible"), i * 150);
+                });
+
+                // Animate nodes with stagger
+                nodes.forEach(node => {
+                    const delay = parseInt(node.dataset.delay || 0, 10);
+                    setTimeout(() => node.classList.add("cm-visible"), delay + 200);
+                });
+
+                // Animate pulses
+                setTimeout(() => {
+                    pulses.forEach(p => p.classList.add("visible"));
+                }, 1200);
+
+                cmObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    cmObs.observe(wrapper);
+})();
+
+
+/* ══════════════════════════════════════════
+   18. HOW IT WORKS TIMELINE ANIMATION
+   ══════════════════════════════════════════ */
+(function initHIWTimeline() {
+    const timeline = document.getElementById("hiwTimeline");
+    if (!timeline) return;
+
+    const steps = timeline.querySelectorAll(".hiw-step");
+    const progressFill = document.getElementById("hiwProgressFill");
+    let revealedCount = 0;
+
+    const stepObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("hiw-visible");
+                revealedCount++;
+                // Update progress bar
+                const pct = (revealedCount / steps.length) * 100;
+                if (progressFill) progressFill.style.height = pct + "%";
+                stepObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3, rootMargin: "0px 0px -50px 0px" });
+
+    steps.forEach(s => stepObs.observe(s));
+})();
