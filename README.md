@@ -144,7 +144,7 @@ src/main/java/com/mohini/
 
 ## 📜 License
 
-Made with ❤ by @IDZz for hackathon and personal use.
+Made with ❤ by @IDZz.
 # 🤖 MOHINI AI – Personal AI Assistant
 
 > A full-featured AI assistant desktop application built with Java Swing + FlatLaf.
@@ -291,4 +291,4 @@ src/main/java/com/mohini/
 
 ## 📜 License
 
-Made with ❤ by @IDZz for hackathon and personal use.
+Made with ❤ by @IDZz.
