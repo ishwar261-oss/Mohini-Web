@@ -157,4 +157,5 @@ src/main/java/com/mohini/
 
 ## 📜 License
 
-Made with ❤ by @IDZz for hackathon and personal use.
+Made with ❤ by @IDZz.
+
