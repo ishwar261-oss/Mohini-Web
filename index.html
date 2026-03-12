@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOHINI AI – Next-Gen AI Learning Platform</title>
+  <meta name="description"
+    content="MOHINI AI is a powerful Java-based AI assistant with visual learning, concept maps, quizzes, simulations, health analysis, and voice interaction. Discover how it works." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    window.mermaid = mermaid;
+  </script>
+</head>
+
+<body data-theme="light">
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <!-- ── NAV ── -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">🤖</span>
+        <span>MOHINI<span class="accent">AI</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#conceptmap">Concept Map</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#codeflow">Code Flow</a></li>
+        <li><a href="#howitworks">How It Works</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+        <a href="#download" class="nav-cta">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Java Swing · OpenRouter API · GPT-4o-mini
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        Meet <span class="gradient-text">MOHINI</span><br />
+        Next-Gen AI<br />Learning Platform
+      </h1>
+      <p class="hero-sub reveal-up delay-2">
+        A full-featured AI desktop app powered by GPT-4o-mini.<br />
+        Visual learning, concept maps, quizzes, simulations, health analysis — all in one elegant interface.
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <a href="#conceptmap" class="btn-primary">
+          <span>Explore Concept Map</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#features" class="btn-ghost">View All 16 Features</a>
+      </div>
+      <div class="hero-stats reveal-up delay-4">
+        <div class="stat"><span class="stat-n" data-count="30">0</span><span class="stat-l">Features</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n" data-count="19">0</span><span class="stat-l">Commands</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n" data-count="8">0</span><span class="stat-l">Packages</span></div>
+      </div>
+    </div>
+    <!-- floating terminal window -->
+    <div class="hero-terminal reveal-right delay-2">
+      <div class="terminal-bar">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">MOHINI AI – Terminal</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="t-line"><span class="t-prefix">mohini&gt;</span> <span class="t-text typed"
+            id="typedText"></span><span class="t-cursor">|</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ── BEGINNER GUIDE & WORKFLOW ── -->
+  <section class="beginner-guide section" style="background: var(--bg-secondary); padding-bottom: 20px;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+         <div style="background: var(--bg-primary); padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="color: var(--accent-primary); font-size: 1.2rem; margin-top: 0; margin-bottom: 10px;">👋 What is MOHINI AI?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">MOHINI AI is a friendly, intelligent assistant designed to help you learn concepts, solve problems, and get guidance using advanced AI. Think of it as a super-smart digital tutor that makes complex things easy.</p>
+         </div>
+         <div style="background: var(--bg-primary); padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="color: var(--accent-cyan); font-size: 1.2rem; margin-top: 0; margin-bottom: 10px;">🧩 What problems it solves?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">Information online is often confusing and overwhelming. MOHINI cuts through the noise, breaking down hard topics into bite-sized, simple pieces. It fixes code, organizes tasks, and answers tough questions clearly.</p>
+         </div>
+         <div style="background: var(--bg-primary); padding: 25px; border-radius: 12px; border: 1px solid var(--border);">
+            <h3 style="color: var(--accent-green); font-size: 1.2rem; margin-top: 0; margin-bottom: 10px;">💡 How it helps users?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">It saves you time and frustration. Whether you are a student or a beginner learning to code, MOHINI creates visual diagrams, quick quizzes, and simple, step-by-step explanations to ensure you truly understand.</p>
+         </div>
+      </div>
+      <div style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 16px; padding: 30px; text-align: center;">
+         <h2 style="font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; color: var(--text-primary);">How MOHINI AI Works</h2>
+         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px;">
+            <div style="background: var(--bg-primary); padding: 15px 25px; border-radius: 8px; border: 1px solid var(--border);">
+               <div style="font-size: 1.8rem; margin-bottom: 10px;">📥</div>
+               <h4 style="margin: 0 0 5px 0;">User Input</h4>
+               <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">You type a question.</p>
+            </div>
+            <div style="color: var(--text-muted); font-size: 1.5rem;">→</div>
+            <div style="background: var(--bg-primary); padding: 15px 25px; border-radius: 8px; border: 1px solid var(--border);">
+               <div style="font-size: 1.8rem; margin-bottom: 10px;">🧠</div>
+               <h4 style="margin: 0 0 5px 0;">AI Processing</h4>
+               <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">AI understands intent.</p>
+            </div>
+            <div style="color: var(--text-muted); font-size: 1.5rem;">→</div>
+            <div style="background: var(--bg-primary); padding: 15px 25px; border-radius: 8px; border: 1px solid var(--border);">
+               <div style="font-size: 1.8rem; margin-bottom: 10px;">⚙️</div>
+               <h4 style="margin: 0 0 5px 0;">MOHINI Logic</h4>
+               <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">Applies formatting.</p>
+            </div>
+            <div style="color: var(--text-muted); font-size: 1.5rem;">→</div>
+            <div style="background: var(--bg-primary); padding: 15px 25px; border-radius: 8px; border: 1px solid var(--border);">
+               <div style="font-size: 1.8rem; margin-bottom: 10px;">✨</div>
+               <h4 style="margin: 0 0 5px 0;">Helpful Output</h4>
+               <p style="font-size: 0.85rem; color: var(--text-muted); margin:0;">Get a clear answer.</p>
+            </div>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VISUALIZE & EXPLAIN DEMO ── -->
+  <section class="visualize-demo section" id="visualize-demo" style="background: var(--bg-primary); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🔮 Visualize & Explain</span>
+        <h2 class="section-title reveal-up delay-1">Understand Concepts<br/><span class="gradient-text">Visually</span></h2>
+        <p class="section-sub reveal-up delay-2">Turn complex text into easy-to-understand diagrams instantly.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">For beginners: Instead of reading long pages, MOHINI AI draws simple pictures and charts so you can see exactly how things work.</p>
+      </div>
+      <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 30px; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display:flex; gap: 10px;">
+           <input type="text" id="vizDemoInput" placeholder="E.g., Diagram of a basic web request" style="flex: 1; padding: 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-input); color: var(--text-primary); font-family: inherit; font-size: 1rem;">
+           <button class="btn-primary" id="vizDemoBtn" style="padding: 0 24px; font-size: 1rem; cursor: pointer;">Generate Visual</button>
+        </div>
+        <div id="vizDemoResult" style="display: none; flex-direction: column; gap: 20px;">
+           <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-primary);">
+               <h3 style="margin: 0 0 10px 0; color: var(--text-primary); font-size: 1.2rem;">Concept Explanation</h3>
+               <p id="vizDemoText" style="margin:0; font-size: 1rem; color: var(--text-secondary); line-height: 1.6;"></p>
+           </div>
+           <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-cyan); overflow-x: auto;">
+               <h3 style="margin: 0 0 15px 0; color: var(--text-primary); font-size: 1.2rem;">Visual Representation</h3>
+               <div id="vizDemoDiagram" style="text-align: center; background: rgba(0,0,0,0.15); padding: 20px; border-radius: 8px;"></div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES (20 Features) ── -->
+  <section class="features-section section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">✨ 40+ Features</span>
+        <h2 class="section-title reveal-up delay-1">Addressing AI Industry<br /><span
+            class="gradient-text">Problems</span></h2>
+        <p class="section-sub reveal-up delay-2">Now with autonomous agents, visual simulators, and multimodal
+          intelligence.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal-card" data-delay="0">
+          <div class="card-icon">🤖</div>
+          <h3>Autonomous Agent</h3>
+          <p>AI agent that plans and executes multi-step tasks like "Create a study plan and generate slides."</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="200">
+          <div class="card-icon">🔮</div>
+          <h3>Visualize & Explain</h3>
+          <p>Generate Mermaid.js diagrams, flowcharts, and architecture maps. Integrated explanation for complex topics.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="300">
+          <div class="card-icon">🎙</div>
+          <h3>Voice & Vision</h3>
+          <p>Full voice-to-text recording and image analysis support. Upload images for AI to see and describe.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="400">
+          <div class="card-icon">🗺</div>
+          <h3>Roadmap Gen</h3>
+          <p>Generate 8-week structured study roadmaps for any topic with skill-level adaptation.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="450">
+          <div class="card-icon">📝</div>
+          <h3>Interactive Quizzes</h3>
+          <p>Generate 10 multiple-choice questions on any topic to test your knowledge with instant feedback.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="500">
+          <div class="card-icon">📊</div>
+          <h3>PPT Generator</h3>
+          <p>Automatically generate and download PowerPoint presentations from text or AI-generated content.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="600">
+          <div class="card-icon">🐞</div>
+          <h3>AI Debugger</h3>
+          <p>Find and fix bugs in your code snippets instantly. Explains the root cause and provides fixes.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="700">
+          <div class="card-icon">📝</div>
+          <h3>Docs Assistant</h3>
+          <p>Generate professional Javadoc or documentation strings for any code snippet provided.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="800">
+          <div class="card-icon">🏥</div>
+          <h3>Health Diag</h3>
+          <p>AI-powered symptom analysis and educational health diagnosis assistant with disclaimers.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="900">
+          <div class="card-icon">📄</div>
+          <h3>PDF & Doc Intel</h3>
+          <p>Extract and analyze content from PDF and text files using PDFBox 3.0 and POI 5.2.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="1000">
+          <div class="card-icon">🔒</div>
+          <h3>Encrypted Storage</h3>
+          <p>All sensitive user data, progress, and memory are stored with AES-256 encryption.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="1100">
+          <div class="card-icon">⚡</div>
+          <h3>20+ commands</h3>
+          <p>Slash commands for everything: /agent, /visualize, /debug, /ppt, /diag, /roadmap, and more.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="0">
+          <div class="card-icon">📋</div>
+          <h3>To-Do System</h3>
+          <p>Add, complete, delete tasks with persistent JSON storage and filtering.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="100">
+          <div class="card-icon">🗒</div>
+          <h3>Smart Notes</h3>
+          <p>Create, edit, export notes. Markdown-ready split-pane editor.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="200">
+          <div class="card-icon">🔊</div>
+          <h3>Text-to-Speech</h3>
+          <p>PowerShell Zira TTS engine reads AI responses in a clear natural voice.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="300">
+          <div class="card-icon">🎨</div>
+          <h3>Modern Dark UI</h3>
+          <p>FlatLaf dark theme with sidebar navigation, 11 panels, and pixel-perfect layout.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="0">
+          <div class="card-icon">🔍</div>
+          <h3>Fact-Check AI</h3>
+          <p>Detects hallucinations in AI responses. Automatically verifies claims and provides confidence scores.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="100">
+          <div class="card-icon">💡</div>
+          <h3>Explainable AI</h3>
+          <p>XAI mode explains "the why" behind every recommendation, ensuring transparent decision support.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="200">
+          <div class="card-icon">🤔</div>
+          <h3>Intent Analysis</h3>
+          <p>Detects vague queries and asks clarifying questions instead of hallucinating general answers.</p>
+          <div class="card-glow"></div>
+        </div>
+        <div class="feature-card reveal-card" data-delay="300">
+          <div class="card-icon">📂</div>
+          <h3>Advanced Doc Intel</h3>
+          <p>Deeper analysis of PDF, Java, and Python files with concepts extraction and summary mapping.</p>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       CONCEPT MAP — Interactive SVG Diagram
+  ══════════════════════════════════ -->
+  <section class="conceptmap-section section" id="conceptmap">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🧠 Concept Map</span>
+        <h2 class="section-title reveal-up delay-1">How MOHINI AI<br /><span class="gradient-text">Connects
+            Everything</span></h2>
+        <p class="section-sub reveal-up delay-2">An interactive visual map showing how all modules work together.</p>
+      </div>
+
+      <div class="concept-map-wrapper" id="conceptMapWrapper">
+        <!-- SVG Connection Lines -->
+        <svg class="cm-svg" id="cmSvg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
+          <!-- Lines drawn by JS -->
+          <line class="cm-line" x1="500" y1="280" x2="200" y2="120" />
+          <line class="cm-line" x1="500" y1="280" x2="500" y2="100" />
+          <line class="cm-line" x1="500" y1="280" x2="800" y2="120" />
+          <line class="cm-line" x1="500" y1="380" x2="160" y2="520" />
+          <line class="cm-line" x1="500" y1="380" x2="500" y2="560" />
+          <line class="cm-line" x1="500" y1="380" x2="840" y2="520" />
+          <!-- Pulse circles on lines -->
+          <circle class="cm-pulse" cx="350" cy="200" r="4" />
+          <circle class="cm-pulse" cx="500" cy="190" r="4" />
+          <circle class="cm-pulse" cx="650" cy="200" r="4" />
+          <circle class="cm-pulse" cx="330" cy="450" r="4" />
+          <circle class="cm-pulse" cx="500" cy="470" r="4" />
+          <circle class="cm-pulse" cx="670" cy="450" r="4" />
+        </svg>
+
+        <!-- Central Hub -->
+        <div class="cm-node cm-hub cm-hidden" data-delay="0">
+          <div class="cm-node-icon">🤖</div>
+          <div class="cm-node-title">MOHINI AI</div>
+          <div class="cm-node-sub">Central Intelligence Hub</div>
+          <div class="cm-ring"></div>
+        </div>
+
+        <!-- Top Row Nodes -->
+        <div class="cm-node cm-outer cm-tl cm-hidden" data-delay="300">
+          <div class="cm-node-icon">🧠</div>
+          <div class="cm-node-title">AI Engine</div>
+          <div class="cm-node-sub">OpenRouter GPT-4o-mini</div>
+        </div>
+        <div class="cm-node cm-outer cm-tc cm-hidden" data-delay="400">
+          <div class="cm-node-icon">📖</div>
+          <div class="cm-node-title">Learning</div>
+          <div class="cm-node-sub">Adaptive Teaching System</div>
+        </div>
+        <div class="cm-node cm-outer cm-tr cm-hidden" data-delay="500">
+          <div class="cm-node-icon">🏥</div>
+          <div class="cm-node-title">Health</div>
+          <div class="cm-node-sub">Symptom Analysis</div>
+        </div>
+
+        <!-- Bottom Row Nodes -->
+        <div class="cm-node cm-outer cm-bl cm-hidden" data-delay="600">
+          <div class="cm-node-icon">📊</div>
+          <div class="cm-node-title">Tracking</div>
+          <div class="cm-node-sub">Progress & Gamification</div>
+        </div>
+        <div class="cm-node cm-outer cm-bc cm-hidden" data-delay="700">
+          <div class="cm-node-icon">💾</div>
+          <div class="cm-node-title">Storage</div>
+          <div class="cm-node-sub">JSON Persistence</div>
+        </div>
+        <div class="cm-node cm-outer cm-br cm-hidden" data-delay="800">
+          <div class="cm-node-icon">🎨</div>
+          <div class="cm-node-title">UI Layer</div>
+          <div class="cm-node-sub">11 Swing Panels</div>
+        </div>
+
+        <!-- Floating particles -->
+        <div class="cm-particle" style="--x:10%;--y:20%;--d:6s"></div>
+        <div class="cm-particle" style="--x:85%;--y:15%;--d:8s"></div>
+        <div class="cm-particle" style="--x:15%;--y:75%;--d:7s"></div>
+        <div class="cm-particle" style="--x:90%;--y:80%;--d:9s"></div>
+        <div class="cm-particle" style="--x:50%;--y:10%;--d:5s"></div>
+        <div class="cm-particle" style="--x:30%;--y:90%;--d:10s"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARCHITECTURE ── -->
+  <section class="arch-section section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🏗 Architecture</span>
+        <h2 class="section-title reveal-up delay-1">Modular Package<br /><span class="gradient-text">Structure</span>
+        </h2>
+        <p class="section-sub reveal-up delay-2">Eight clearly separated packages — each with a single responsibility.
+        </p>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-pkg reveal-card" data-delay="0">
+          <div class="pkg-header">
+            <span class="pkg-icon">🤖</span>
+            <div>
+              <div class="pkg-name">ai/</div>
+              <div class="pkg-desc">AI Service Layer</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Message.java</li>
+            <li><span class="file-icon">📄</span> OpenAIService.java</li>
+          </ul>
+          <div class="pkg-badge">Core</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="100">
+          <div class="pkg-header">
+            <span class="pkg-icon">⚡</span>
+            <div>
+              <div class="pkg-name">commands/</div>
+              <div class="pkg-desc">Slash Command System</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Command.java (interface)</li>
+            <li><span class="file-icon">📄</span> CommandHandler.java</li>
+            <li><span class="file-icon">📄</span> + 9 command classes</li>
+          </ul>
+          <div class="pkg-badge">Commands</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="200">
+          <div class="pkg-header">
+            <span class="pkg-icon">📖</span>
+            <div>
+              <div class="pkg-name">learning/</div>
+              <div class="pkg-desc">Learning Engine</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> LearningEngine.java</li>
+            <li><span class="file-icon">📄</span> RoadmapGenerator.java</li>
+            <li><span class="file-icon">📄</span> ConceptExplainer.java</li>
+            <li><span class="file-icon">📄</span> SkillLevelManager.java</li>
+          </ul>
+          <div class="pkg-badge">Learning</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="300">
+          <div class="pkg-header">
+            <span class="pkg-icon">🔧</span>
+            <div>
+              <div class="pkg-name">services/</div>
+              <div class="pkg-desc">Intelligence & Service Layer</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> FactCheckService.java</li>
+            <li><span class="file-icon">📄</span> IntentAnalyzer.java</li>
+            <li><span class="file-icon">📄</span> DocumentAnalysisService.java</li>
+            <li><span class="file-icon">📄</span> MemoryManager.java</li>
+            <li><span class="file-icon">📄</span> HealthAnalysisService.java</li>
+          </ul>
+          <div class="pkg-badge">Services</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="400">
+          <div class="pkg-header">
+            <span class="pkg-icon">📊</span>
+            <div>
+              <div class="pkg-name">tracking/</div>
+              <div class="pkg-desc">Progress & Gamification</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> ProgressTracker.java</li>
+            <li><span class="file-icon">📄</span> GamificationSystem.java</li>
+          </ul>
+          <div class="pkg-badge">Tracking</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="500">
+          <div class="pkg-header">
+            <span class="pkg-icon">💾</span>
+            <div>
+              <div class="pkg-name">storage/</div>
+              <div class="pkg-desc">Data Persistence</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> TodoManager.java</li>
+            <li><span class="file-icon">📄</span> NotesManager.java</li>
+            <li><span class="file-icon">📄</span> ReminderManager.java</li>
+            <li><span class="file-icon">📄</span> ChatHistoryManager.java</li>
+          </ul>
+          <div class="pkg-badge">Storage</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="600">
+          <div class="pkg-header">
+            <span class="pkg-icon">🎨</span>
+            <div>
+              <div class="pkg-name">ui/</div>
+              <div class="pkg-desc">GUI Components</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> ChatUI.java (Main Frame)</li>
+            <li><span class="file-icon">📄</span> VisualizationPanel.java</li>
+            <li><span class="file-icon">📄</span> QuizPanel.java</li>
+            <li><span class="file-icon">📄</span> HealthPanel.java</li>
+            <li><span class="file-icon">📄</span> + 7 more panels</li>
+          </ul>
+          <div class="pkg-badge">UI</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="700">
+          <div class="pkg-header">
+            <span class="pkg-icon">📦</span>
+            <div>
+              <div class="pkg-name">models/</div>
+              <div class="pkg-desc">Data Models</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> Memory.java</li>
+            <li><span class="file-icon">📄</span> QuizQuestion.java</li>
+            <li><span class="file-icon">📄</span> LearningTopic.java</li>
+            <li><span class="file-icon">📄</span> HealthReport.java</li>
+          </ul>
+          <div class="pkg-badge">Models</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CODE FLOW ── -->
+  <section class="codeflow-section section" id="codeflow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🔄 Code Flow</span>
+        <h2 class="section-title reveal-up delay-1">How MOHINI<br /><span class="gradient-text">Processes Your
+            Input</span></h2>
+        <p class="section-sub reveal-up delay-2">From keystroke to AI response — watch the full data pipeline.</p>
+      </div>
+
+      <div class="flow-container">
+        <!-- Step 1 -->
+        <div class="flow-step reveal-flow" data-step="1">
+          <div class="flow-step-inner">
+            <div class="flow-num">01</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">⌨️</div>
+            </div>
+            <div class="flow-body">
+              <h3>User Input</h3>
+              <p>User types a message or slash command in the <strong>ChatPanel</strong>. Input is captured by the Swing
+                text field's action listener.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>ChatPanel.java</span></div>
+                <pre><code><span class="kw">sendButton</span>.addActionListener(<span class="kw">e</span> -&gt; {
+  String input = <span class="str">inputField</span>.getText().trim();
+  <span class="kw">if</span> (!input.isEmpty()) processInput(input);
+});</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flow-step reveal-flow" data-step="2">
+          <div class="flow-step-inner">
+            <div class="flow-num">02</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">🔍</div>
+            </div>
+            <div class="flow-body">
+              <h3>Validation &amp; Routing</h3>
+              <p><strong>InputValidator</strong> sanitizes the input. <strong>CommandHandler</strong> checks if it
+                starts with <code>/</code> and routes to the correct command class.</p>
+              <div class="flow-code">
+                <div class="code-header"><span>CommandHandler.java</span></div>
+                <pre><code><span class="kw">if</span> (input.startsWith(<span class="str">"/"</span>)) {
+  Command cmd = <span class="fn">registry</span>.get(input.split(<span class="str">" "</span>)[0]);
+  <span class="kw">return</span> cmd != <span class="kw">null</span> ? cmd.execute(args) : <span class="str">"Unknown command"</span>;
+} <span class="kw">else</span> {
+  <span class="kw">return</span> aiService.chat(input); <span class="cm">// → AI path</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 3 – branching -->
+        <div class="flow-branch reveal-up delay-1">
+          <div class="branch-label">Branching Logic</div>
+          <div class="branch-box">
+            <div class="branch-path ai-path">
+              <div class="branch-icon">🤖</div>
+              <h4>AI Chat Path</h4>
+              <p><strong>OpenAIService.java</strong> builds JSON with message history + memory context, calls OpenRouter
+                API.</p>
+              <div class="flow-code small">
+                <pre><code>POST api.openrouter.ai/api/v1/chat
+<span class="cm">// model: openai/gpt-4o-mini</span>
+<span class="cm">// messages: [{role, content}...]</span>
+<span class="cm">// + MemoryManager context</span></code></pre>
+              </div>
+            </div>
+            <div class="branch-divider">
+              <div class="branch-or">OR</div>
+            </div>
+            <div class="branch-path cmd-path">
+              <div class="branch-icon">⚡</div>
+              <h4>Command Path</h4>
+              <p>Matched command runs locally: <strong>/calc</strong>, <strong>/quiz</strong>, <strong>/learn</strong>,
+                <strong>/health</strong>, or data persistence commands.
+              </p>
+              <div class="flow-code small">
+                <pre><code><span class="kw">class</span> CalcCommand <span class="kw">implements</span> Command {
+  <span class="kw">public</span> String execute(String args) {
+    <span class="kw">return</span> Evaluator.eval(args);
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flow-step reveal-flow" data-step="4">
+          <div class="flow-step-inner">
+            <div class="flow-num">04</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">💾</div>
+            </div>
+            <div class="flow-body">
+              <h3>Storage Layer</h3>
+              <p>Data persists via <strong>TodoManager</strong>, <strong>NotesManager</strong>,
+                <strong>ProgressTracker</strong>, <strong>MemoryManager</strong> as JSON files in <code>data/</code>.
+              </p>
+              <div class="flow-code">
+                <div class="code-header"><span>MemoryManager.java</span></div>
+                <pre><code><span class="kw">public void</span> remember(String key, String value) {
+  memories.put(key, value);
+  saveMemory(); <span class="cm">// → data/memory.json</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow-down"></div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flow-step reveal-flow" data-step="5">
+          <div class="flow-step-inner">
+            <div class="flow-num">05</div>
+            <div class="flow-icon-wrap">
+              <div class="flow-icon">🎨</div>
+            </div>
+            <div class="flow-body">
+              <h3>UI Rendering</h3>
+              <p>Response rendered in the appropriate panel: <strong>ChatPanel</strong>, <strong>QuizPanel</strong>,
+                <strong>VisualizationPanel</strong>, <strong>HealthPanel</strong>, or
+                <strong>ProgressDashboard</strong>. Optional TTS output.
+              </p>
+              <div class="flow-code">
+                <div class="code-header"><span>ChatUI.java</span></div>
+                <pre><code><span class="kw">private void</span> switchTab(String tabId) {
+  cardLayout.show(contentPanel, tabId);
+  <span class="cm">// 11 panels via CardLayout</span>
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       HOW IT WORKS — Explaining Diagram
+  ══════════════════════════════════ -->
+  <section class="howitworks-section section" id="howitworks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🚀 How It Works</span>
+        <h2 class="section-title reveal-up delay-1">From Input<br /><span class="gradient-text">To Intelligence</span>
+        </h2>
+        <p class="section-sub reveal-up delay-2">A visual journey through MOHINI AI's processing pipeline.</p>
+      </div>
+
+      <div class="hiw-timeline" id="hiwTimeline">
+        <!-- Progress bar -->
+        <div class="hiw-progress-track">
+          <div class="hiw-progress-fill" id="hiwProgressFill"></div>
+        </div>
+
+        <div class="hiw-step hiw-hidden" data-hiw="1">
+          <div class="hiw-dot">1</div>
+          <div class="hiw-card">
+            <div class="hiw-icon">⌨️</div>
+            <h3>Input</h3>
+            <p>Type text, speak, or upload a file. MOHINI accepts commands, questions, and documents.</p>
+          </div>
+        </div>
+
+        <div class="hiw-step hiw-hidden" data-hiw="2">
+          <div class="hiw-dot">2</div>
+          <div class="hiw-card">
+            <div class="hiw-icon">🧠</div>
+            <h3>Memory + Context</h3>
+            <p>MemoryManager loads your preferences, skill level, and past interactions to personalize the response.</p>
+          </div>
+        </div>
+
+        <div class="hiw-step hiw-hidden" data-hiw="3">
+          <div class="hiw-dot">3</div>
+          <div class="hiw-card">
+            <div class="hiw-icon">🔀</div>
+            <h3>Route</h3>
+            <p>CommandHandler routes to local commands or AI. LearningEngine adjusts for your skill level.</p>
+          </div>
+        </div>
+
+        <div class="hiw-step hiw-hidden" data-hiw="4">
+          <div class="hiw-dot">4</div>
+          <div class="hiw-card">
+            <div class="hiw-icon">⚡</div>
+            <h3>Process</h3>
+            <p>AI generates response, quizzes are created, simulations run, or health analysis is performed.</p>
+          </div>
+        </div>
+
+        <div class="hiw-step hiw-hidden" data-hiw="5">
+          <div class="hiw-dot">5</div>
+          <div class="hiw-card">
+            <div class="hiw-icon">🎯</div>
+            <h3>Display + Track</h3>
+            <p>Results appear in the correct panel. XP is awarded, progress saved, achievements unlocked.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NO VIDEO DEMO ANYMORE ── -->
+  <section class="video-replacement section" id="video-demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🎥 In Action</span>
+        <h2 class="section-title reveal-up delay-1">See MOHINI AI<br /><span class="gradient-text">Come Alive</span></h2>
+        <p class="section-sub reveal-up delay-2">A clean, functional interface designed to make AI interaction effortless.</p>
+      </div>
+      <div class="video-replacement-content" style="margin-top: 40px;">
+         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <div class="feature-detail-card" style="background: var(--bg-tertiary); padding: 30px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+               <div style="font-size: 2.5rem; margin-bottom: 15px;">📝</div>
+               <h3 style="margin-top:0; color: var(--text-primary); font-size: 1.3rem;">Feature explanation cards</h3>
+               <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">Get clear, step-by-step explanations tailored to your skill level. No complex jargon, just easy-to-understand insights that guide you through every task securely and beautifully.</p>
+            </div>
+            <div class="feature-detail-card" style="background: var(--bg-tertiary); padding: 30px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+               <div style="font-size: 2.5rem; margin-bottom: 15px;">📈</div>
+               <h3 style="margin-top:0; color: var(--text-primary); font-size: 1.3rem;">Workflow diagrams</h3>
+               <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">Visual pathfinding for AI processes. Watch exactly how your data moves through various intelligence modules with real-time feedback and dynamic Mermaid.js graphs.</p>
+            </div>
+            <div class="feature-detail-card" style="background: var(--bg-tertiary); padding: 30px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+               <div style="font-size: 2.5rem; margin-bottom: 15px;">💻</div>
+               <h3 style="margin-top:0; color: var(--text-primary); font-size: 1.3rem;">System Screenshots</h3>
+               <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">An intuitive interface that makes interacting with advanced AI tools a breeze. Clean sidebars, tabbed navigation, and rich response panels keep everything organized and elegant.</p>
+            </div>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMMANDS ── -->
+  <section class="commands-section section" id="commands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">⚡ Commands</span>
+        <h2 class="section-title reveal-up delay-1">15 Powerful<br /><span class="gradient-text">Slash Commands</span>
+        </h2>
+        <p class="section-sub reveal-up delay-2">Type <code>/</code> to unlock a world of local and AI-powered
+          capabilities.</p>
+      </div>
+      <div class="cmd-grid">
+        <div class="cmd-card reveal-card" data-delay="0">
+          <div class="cmd-top"><code class="cmd-name">/help</code><span class="cmd-tag local">Local</span></div>
+          <p class="cmd-usage">Usage: <code>/help</code></p>
+          <p>List all available commands with usage hints.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="100">
+          <div class="cmd-top"><code class="cmd-name">/calc</code><span class="cmd-tag local">Local</span></div>
+          <p class="cmd-usage">Usage: <code>/calc 2+2*3</code></p>
+          <p>Evaluate mathematical expressions instantly.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="200">
+          <div class="cmd-top"><code class="cmd-name">/code</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/code Python sort a list</code></p>
+          <p>Generate clean, ready-to-use code.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="300">
+          <div class="cmd-top"><code class="cmd-name">/remember</code><span class="cmd-tag local">Memory</span></div>
+          <p class="cmd-usage">Usage: <code>/remember goal learn Java</code></p>
+          <p>Save preferences that influence AI responses.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="400">
+          <div class="cmd-top"><code class="cmd-name">/todo</code><span class="cmd-tag local">Local</span></div>
+          <p class="cmd-usage">Usage: <code>/todo add Buy milk</code></p>
+          <p>Full to-do management: add, list, done, delete.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="500">
+          <div class="cmd-top"><code class="cmd-name">/notes</code><span class="cmd-tag local">Local</span></div>
+          <p class="cmd-usage">Usage: <code>/notes save My idea</code></p>
+          <p>Save and view quick notes with export.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="600">
+          <div class="cmd-top"><code class="cmd-name">/quiz</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/quiz Java</code></p>
+          <p>Start a 10-question AI quiz on any topic.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="700">
+          <div class="cmd-top"><code class="cmd-name">/explain</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/explain recursion</code></p>
+          <p>Get clear explanations of any concept.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="800">
+          <div class="cmd-top"><code class="cmd-name">/summarize</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/summarize &lt;text&gt;</code></p>
+          <p>Condense long text into bullet-point summaries.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="900">
+          <div class="cmd-top"><code class="cmd-name">/search</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/search quantum computing</code></p>
+          <p>AI-powered search from synthesized knowledge.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="900">
+          <div class="cmd-top"><code class="cmd-name">/analyze</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/analyze</code></p>
+          <p>Analyze uploaded documents and files instantly.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="1000">
+          <div class="cmd-top"><code class="cmd-name">/compare</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/compare React vs Angular</code></p>
+          <p>Generates Pros/Cons list with decision support.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="1100">
+          <div class="cmd-top"><code class="cmd-name">/summary</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/summary [text]</code></p>
+          <p>Summarize long text with explainable reasoning.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="1200">
+          <div class="cmd-top"><code class="cmd-name">/ppt</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/ppt AI in Healthcare</code></p>
+          <p>Generate a downloadable PowerPoint presentation.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="1300">
+          <div class="cmd-top"><code class="cmd-name">/idea</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/idea startup AI</code></p>
+          <p>Generate structured ideas with values and challenges.</p>
+        </div>
+        <div class="cmd-card reveal-card" data-delay="1400">
+          <div class="cmd-top"><code class="cmd-name">/plan</code><span class="cmd-tag ai">AI</span></div>
+          <p class="cmd-usage">Usage: <code>/plan build app</code></p>
+          <p>Create step-by-step sequential execution plans.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK ── -->
+  <section class="demo-section section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal-up">🛠 Tech Stack</span>
+        <h2 class="section-title reveal-up delay-1">Built with<br /><span class="gradient-text">Java &amp; AI</span>
+        </h2>
+        <p class="section-sub reveal-up delay-2">A hand-crafted stack for performance, reliability, and desktop
+          integration.</p>
+      </div>
+      <div class="tech-stack-visual reveal-up delay-2">
+        <div class="tech-layer" data-delay="0">
+          <div class="tech-layer-label">UI Layer</div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> AgentOrchestrator.java</li>
+            <li><span class="file-icon">📄</span> TaskPlanner.java</li>
+            <li><span class="file-icon">📄</span> ToolExecutor.java</li>
+            <li><span class="file-icon">📄</span> IntentDetector.java</li>
+          </ul>
+          <div class="pkg-badge">Agent</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="700">
+          <div class="pkg-header">
+            <span class="pkg-icon">🌐</span>
+            <div>
+              <div class="pkg-name">multimodal/</div>
+              <div class="pkg-desc">Vision & Audio</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> VoiceInputManager.java</li>
+            <li><span class="file-icon">📄</span> ImageAnalyzer.java</li>
+            <li><span class="file-icon">📄</span> InputRouter.java</li>
+          </ul>
+          <div class="pkg-badge">Vision</div>
+        </div>
+        <div class="arch-pkg reveal-card" data-delay="800">
+          <div class="pkg-header">
+            <span class="pkg-icon">🔒</span>
+            <div>
+              <div class="pkg-name">security/</div>
+              <div class="pkg-desc">AES Encryption</div>
+            </div>
+          </div>
+          <ul class="pkg-files">
+            <li><span class="file-icon">📄</span> EncryptionUtils.java</li>
+            <li><span class="file-icon">📄</span> SecureStorageManager.java</li>
+          </ul>
+          <div class="pkg-badge">Security</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOWNLOAD ── -->
+  <section class="download-section section" id="download">
+    <div class="container">
+      <div class="download-card reveal-up">
+        <div class="download-orbs">
+          <div class="d-orb d-orb-1"></div>
+          <div class="d-orb d-orb-2"></div>
+        </div>
+        <div class="download-content">
+          <h2>Ready to meet <span class="gradient-text">MOHINI</span>?</h2>
+          <p>Set up your OpenRouter API key and run in under 2 minutes.</p>
+          <div class="setup-steps">
+            <div class="setup-step">
+              <span class="step-num">1</span>
+              <div><strong>Set API Key</strong><code class="setup-code">set OPENROUTER_API_KEY=sk-or-...</code></div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">2</span>
+              <div><strong>Build with Maven</strong><code class="setup-code">mvn clean package -q</code></div>
+            </div>
+            <div class="setup-step">
+              <span class="step-num">3</span>
+              <div><strong>Run the JAR</strong><code class="setup-code">java -jar target/MohiniAI-1.0.jar</code></div>
+            </div>
+          </div>
+          <div class="download-actions">
+            <a href="../run_mohini.bat" class="btn-primary large"><span>🚀 Launch MOHINI</span></a>
+            <a href="https://openrouter.ai" target="_blank" class="btn-ghost large">Get API Key →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">🤖</span>
+          <span>MOHINI<span class="accent">AI</span></span>
+        </div>
+        <p class="footer-copy">Made with ❤ by <strong>@IDZz</strong>.</p>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#conceptmap">Concept Map</a>
+          <a href="#codeflow">Code Flow</a>
+          <a href="#howitworks">How It Works</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+
+
+</html>
